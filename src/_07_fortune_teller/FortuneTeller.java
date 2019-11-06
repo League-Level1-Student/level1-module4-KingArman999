@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
 public class FortuneTeller extends JPanel implements Runnable, MouseListener {
 
     JFrame frame = new JFrame();
-
+int ran = new Random().nextInt(4);
     int frameWidth = 500;
     int frameHeight = 500;
 
@@ -33,7 +33,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
      // 3. Complete the begin() method in the FortuneTellerRunner class
  	 // 4. add a mouse listener to the frame
-
+   	 frame.addMouseListener(this);
     }
 
 
@@ -43,23 +43,33 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 int mouseX = e.getX();
    	 int mouseY = e.getY();
    	 // 5. Print the mouseX variable
-
+System.out.println("x = " + e.getX() + " y = "+ e.getY()+")");
    	 // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
    	 // 7. Adjust your secret location co-ordinates here:
-   	 int secretLocationX = 0;
-   	 int secretLocationY = 0;
+   	 int secretLocationX = 262;
+   	 int secretLocationY = 152;
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
    		 // 8. Get the user to enter a question for the fortune teller
-
+String question = JOptionPane.showInputDialog("WHAT DO YOU WANT TO ASK");
+AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // 9. Find a spooky sound and put it in your default package (freesound.org)
    		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // 10. Play the sound
-
    		 // 11. Use the pause() method below to wait until your music has finished
-
+pause(10);
    		 // 12. Insert your completed Magic 8 ball code here
-
+System.out.println(ran);
+JOptionPane.showInputDialog("GIVE THE 8-BALL A QUESTION!!!");
+if (ran == 0) {
+	JOptionPane.showMessageDialog(null, "Yes");
+}else if(ran == 1) {
+	JOptionPane.showMessageDialog(null, "No");
+}else if(ran == 2 ) {
+	JOptionPane.showMessageDialog(null, "Maybe you should ask Google?");
+}else if(ran == 3) {
+	JOptionPane.showMessageDialog(null, "What is wrong with you?");
+}
    	 }
 
     }
