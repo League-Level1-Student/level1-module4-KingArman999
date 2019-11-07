@@ -40,6 +40,7 @@ public class Calculator implements ActionListener {
 		b4.setText("Div");
 		f.setVisible(true);
 		f.pack();
+		l.setText("  ");
 	}
 
 	void add(){
