@@ -1,7 +1,19 @@
 package _10_pig_latin;
 
-public class PigLatinTranslator {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PigLatinTranslator implements ActionListener {
+	JFrame f = new JFrame();
+	JPanel p = new JPanel();
+	JTextField t1 = new JTextField(10);
+	JTextField t2 = new JTextField(10);
+	JButton b = new JButton();
 
 		/**
 		* Method to test whether a character is a letter or not.
@@ -11,7 +23,25 @@ public class PigLatinTranslator {
 		private static boolean isLetter(char c) {
 		return ( (c >= 'A' && c <= 'Z') || (c >='a' && c <= 'z') );
 		}
-		    
+		void run(){
+			f.add(p);
+			p.add(t1);
+			p.add(b);
+			p.add(t2);
+			f.setVisible(true);
+			f.pack();
+			
+		b.addActionListener(this);
+				b.setText("translate");
+				}
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+			String s = t1.getText();
+			String ss = translate(s);
+			t2.setText(ss);
+			}   
 		/**
 		* Method to translate one word into pig latin.
 		* @param word The word in english
