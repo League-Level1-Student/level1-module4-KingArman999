@@ -18,6 +18,7 @@ int ran;
 int molesWhacked = 0;
 int missed = 0;
 Date timeAtStart = new Date();
+
 void run() {
 p = new JPanel();
 f = new JFrame();
@@ -29,9 +30,6 @@ drawbuttons();
 f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
 f.pack();
 }
-
-
-
 void drawbuttons() {
 	ran = new Random().nextInt(23);
 for (int i = 0; i < 24; i++) {
